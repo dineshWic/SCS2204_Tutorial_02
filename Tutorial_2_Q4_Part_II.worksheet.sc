@@ -6,8 +6,8 @@ val change = 5
 
 def NumOfPeople(change: Int): Int = -1 * (change * 20 / 5) + 120
 def PriceOfTicket(change : Int)= normalPrice + change
-def Income(numOfPeople: Int, priceOfTicket: Int)= numOfPeople*priceOfTicket
-def CostForOwner(numOfPeople: Int,)= costForOwner + ( costForAttendee * numOfPeople )
+def Income(numOfPeople: Int, priceOfTicket: Float)= numOfPeople*priceOfTicket
+def CostForOwner(numOfPeople: Int)= costForOwner + ( costForAttendee * numOfPeople )
 def ProfitForOwner(income: Float, cost: Float)= income - cost
 
 def BestPrice(priceIncrease: Int, priceDecrease: Int): Float={
@@ -19,7 +19,7 @@ def BestPrice(priceIncrease: Int, priceDecrease: Int): Float={
     val discreasedPeople = NumOfPeople(priceDecrease)
     val discreasedTicketPrice = PriceOfTicket(priceDecrease)
 
-    val discreasedProfit = ProfitForOwner( Income( discreasedPeople, discreasedTicketPrice ), CostForOwner(discreasedTicketPrice) )
+    val discreasedProfit = ProfitForOwner( Income( discreasedPeople, discreasedTicketPrice ), CostForOwner(discreasedPeople) )
 
     if( increasedProfit >= discreasedProfit) inceasedTicketPrice else discreasedTicketPrice
 }
